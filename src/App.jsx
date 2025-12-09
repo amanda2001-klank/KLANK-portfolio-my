@@ -1,6 +1,7 @@
 import "./App.css";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
+import About from "./components/About";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 import { useEffect, useState } from "react";
@@ -12,7 +13,7 @@ function App() {
 
   useEffect(() => {
     setIsLoaded(true);
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_ID);
   }, []);
 
   return (
@@ -20,6 +21,7 @@ function App() {
       <Navbar />
 
       <Hero />
+      <About/>
       <Projects />
       <Contact />
 
@@ -30,7 +32,7 @@ function App() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p> &copy; 2025 KLANKTech. All rights reserved.</p>
+        <p> &copy; 2025 KLANKTECH. All rights reserved.</p>
       </motion.footer>
     </div>
   );

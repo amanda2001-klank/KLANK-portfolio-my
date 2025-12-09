@@ -56,8 +56,7 @@ export const Contact = () => {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_ID
+        }
       );
 
       setFormStatus({
