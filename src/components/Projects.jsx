@@ -67,7 +67,7 @@ export const Projects = () => {
         whileInView="animate"
         viewport={{ once: true }}
       >
-        {/* Project 1 */}
+        {/* Project 1 - FutureWatt */}
         <motion.div
           className="project-card"
           variants={fadeInUp}
@@ -75,49 +75,23 @@ export const Projects = () => {
         >
           <motion.div
             className="project-image"
-            style={{ backgroundImage: "url('/projects/ai-saas.png')" }}
+            style={{ backgroundImage: "url('projects/1747898101798.jpg')" }} 
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.4 }}
           />
-          <h3>AI SaaS Platform</h3>
+          <h3>FutureWatt</h3>
           <p>
-            A modern SaaS platform built with Next.js and OpenAI integration,
-            featuring real-time AI-powered content generation and analytics.
+            Sustainable Energy Management System. Full-stack web application for a solar energy solutions provider, streamlining sales operations and customer relationship management.
           </p>
           <div className="project-tech">
-            <span>Next.js</span>
-            <span>OpenAI</span>
-            <span>TailwindCSS</span>
-          </div>
-          <GithubButton href="https://github.com/yourusername/ai-saas" />
-        </motion.div>
-
-        {/* Project 2 */}
-        <motion.div
-          className="project-card"
-          variants={fadeInUp}
-          whileHover={{ y: -10, transition: { duration: 0.3 } }}
-        >
-          <motion.div
-            className="project-image"
-            style={{ backgroundImage: "url('/projects/social-media.png')" }}
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.4 }}
-          />
-          <h3>Social Media Dashboard</h3>
-          <p>
-            A comprehensive social media management dashboard with analytics,
-            scheduling, and engagement tracking features.
-          </p>
-          <div className="project-tech">
-            <span>React</span>
-            <span>Node.js</span>
+            <span>ReactJS</span>
+            <span>MaterialUI</span>
             <span>MongoDB</span>
           </div>
-          <GithubButton href="https://github.com/yourusername/social-dashboard" />
+          <GithubButton href="https://github.com/TheekshR/FutureWatt" />
         </motion.div>
 
-        {/* Project 3 */}
+        {/* Project 2 - FINIX */}
         <motion.div
           className="project-card"
           variants={fadeInUp}
@@ -125,21 +99,44 @@ export const Projects = () => {
         >
           <motion.div
             className="project-image"
-            style={{ backgroundImage: "url('/projects/stopwatch.png')" }}
+            style={{ backgroundImage: "url('projects/image.jpg')" }} 
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.4 }}
           />
-          <h3>Productivity Timer</h3>
+          <h3>FINIX</h3>
           <p>
-            A sleek productivity timer application with customizable work
-            sessions, statistics tracking, and dark mode support.
+            Finance Tracker App. Developed a comprehensive Android finance management application enabling users to track income, expenses, and budgets with real-time insights and data visualization.
           </p>
           <div className="project-tech">
-            <span>React</span>
-            <span>TypeScript</span>
-            <span>TailwindCSS</span>
+            <span>Kotlin</span>
+            <span>MPAndroidChart</span>
+            <span>SQLite</span>
           </div>
-          <GithubButton href="https://github.com/yourusername/productivity-timer" />
+          <GithubButton href="https://github.com/yourusername/finix-finance-app" />
+        </motion.div>
+
+        {/* Project 3 - Fresh Mart */}
+        <motion.div
+          className="project-card"
+          variants={fadeInUp}
+          whileHover={{ y: -10, transition: { duration: 0.3 } }}
+        >
+          <motion.div
+            className="project-image"
+            style={{ backgroundImage: "url('projects/stopwatch.png')" }} 
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.4 }}
+          />
+          <h3>Fresh Mart</h3>
+          <p>
+            Online Stock Management System. Built a comprehensive inventory and sales management system for grocery retail operations using Java backend architecture.
+          </p>
+          <div className="project-tech">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+          <GithubButton href="https://github.com/yourusername/fresh-mart" />
         </motion.div>
       </motion.div>
     </motion.section>
