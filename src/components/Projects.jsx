@@ -115,6 +115,31 @@ export const Projects = () => {
           <GithubButton href="https://github.com/yourusername/finix-finance-app" />
         </motion.div>
 
+        {/* Project 3 - Memory game */}
+        <motion.div
+          className="project-card"
+          variants={fadeInUp}
+          whileHover={{ y: -10, transition: { duration: 0.3 } }}
+        >
+          <motion.div
+            className="project-image"
+            style={{ backgroundImage: "url('projects/memory-card.jpg')" }} 
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.4 }}
+          />
+          <h3>Memory game</h3>
+          <p>
+            Test your memory and concentration with this classic card-matching game!
+             Flip cards to reveal hidden symbols and find matching pairs in as few moves as possible.
+          </p>
+          <div className="project-tech">
+            <span>Reactjs</span>
+            <span>Java script</span>
+            <span>CSS</span>
+          </div>
+          <GithubButton href="https://github.com/amanda2001-klank/Memory-card" />
+        </motion.div>
+
         {/* Project 3 - Fresh Mart */}
         <motion.div
           className="project-card"
@@ -138,6 +163,7 @@ export const Projects = () => {
           </div>
           <GithubButton href="https://github.com/yourusername/fresh-mart" />
         </motion.div>
+        
       </motion.div>
     </motion.section>
   );

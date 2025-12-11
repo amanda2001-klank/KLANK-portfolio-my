@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from 'react';
 import './About.css';
 
@@ -75,7 +76,8 @@ const About = () => {
             <div className="about-intro">
               <h3>Hello! I'm Amandya Nethranja</h3>
               <p>
-                I'm a creative developer who bridges the gap between design and technology. Specializing in modern web applications and dynamic user interfaces, I transform complex ideas into elegant digital solutions. My approach combines pixel-perfect design, smooth animations, and
+                I'm a creative developer who bridges the gap between design and technology. Specializing in modern web applications and dynamic user interfaces,
+                 I transform complex ideas into elegant digital solutions. My approach combines pixel-perfect design, smooth animations, and
                  optimized performance to create experiences that users love and businesses rely on.
               </p>
               <p>
@@ -83,7 +85,19 @@ const About = () => {
                 technologies. I believe in the transformative power of AI to solve real-world 
                 problems and create meaningful impact in various industries.
               </p>
+              {/* 🎯 NEW RESUME BUTTON ADDED HERE */}
+            <motion.a
+              href="projects/AMANDYA  NETHRANJA KARIYAWASAM.pdf"  // put your PDF in public folder
+              download
+              className="resume-btn"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Download Resume
+            </motion.a>
+              
             </div>
+            
 
             <div className="about-details">
               <div className="detail-item">

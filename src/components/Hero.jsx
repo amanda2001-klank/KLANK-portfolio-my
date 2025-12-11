@@ -50,7 +50,7 @@ export const Hero = () => {
             I build seamless digital solutions that merge clean code with intuitive design. Specializing 
             in responsive web applications and user-centered interfaces that deliver real impact..
           </motion.p>
-
+          
           <motion.div className="cta-buttons" variants={staggerContainer}>
             <motion.a
               href="#projects"
@@ -69,11 +69,16 @@ export const Hero = () => {
             >
               Contact Me
             </motion.a>
+            
+          
+            
           </motion.div>
+
           <motion.div className="social-links" variants={staggerContainer}>
             <motion.a href="https://github.com/amanda2001-klank" target="_blank">
               <i className="fab fa-github"> </i>
             </motion.a>
+            
             <motion.a href="www.linkedin.com/in/amandya-nethranja-8925b3316" target="_blank">
               <i className="fab fa-linkedin"> </i>
             </motion.a>

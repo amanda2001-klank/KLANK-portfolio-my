@@ -504,3 +504,57 @@
 
 
 }
+
+/* =================================== */
+/* DOWNLOAD RESUME BUTTON (About Section) */
+/* =================================== */
+
+.about-intro-section .resume-btn {
+  /* Layout and Base Styling */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem; /* Space below the paragraph */
+  padding: 0.75rem 2rem;
+  border-radius: 8px; /* Slightly squarer than the Hero buttons (50px) for a subtle difference */
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  /* Look & Feel (Using Accent Color for Prominence) */
+  background: var(--accent-color);
+  color: var(--primary-color); /* Dark text on bright accent color */
+  border: 2px solid var(--accent-color);
+  box-shadow: 0 4px 20px rgba(76, 206, 93, 0.4); /* Accent shadow */
+}
+
+/* Hover Effect */
+.about-intro-section .resume-btn:hover {
+  background: transparent;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 5px var(--accent-color), 0 0 15px var(--accent-color);
+  transform: translateY(-2px); /* Slight lift */
+}
+
+/* Active/Tap Effect */
+.about-intro-section .resume-btn:active {
+  transform: translateY(0);
+}
+
+/* Optional: Add an icon for visual cue */
+.about-intro-section .resume-btn::before {
+  content: "⬇️"; /* Download arrow emoji */
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+/* Optional: Icon animation on hover */
+.about-intro-section .resume-btn:hover::before {
+  transform: translateY(2px);
+}
+
