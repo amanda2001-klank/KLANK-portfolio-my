@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { ArrowUp } from "lucide-react"; // you already have lucide-react installed
+import { Footer } from "./components/Footer";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -47,17 +48,10 @@ function App() {
       <About />
       <Projects />
       <Contact />
+      <Footer />
+      
 
-      <motion.footer
-        className="footer"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <p>© 2025 KLANKTECH. All rights reserved.</p>
-      </motion.footer>
-
+  
       {/* Scroll to Top Button */}
       <motion.button
         className="scroll-top-btn"

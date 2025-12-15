@@ -65,6 +65,16 @@ const About = () => {
 
   return (
     <section id="about" className="about-section">
+      <div className="profile-image-container">
+    <motion.img 
+      src="projects/profile.png"  // path from public folder
+      alt="Amandya Nethranja - Full Stack Developer"
+      className="profile-image"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6 }}
+    />
+  </div>
       <div className="about-container">
         <div className="section-header">
           <h2 className="section-title">About Me</h2>
