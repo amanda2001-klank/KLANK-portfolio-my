@@ -180,24 +180,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="about-stats">
-          <div className="stat-item">
-            <div className="stat-number">+1</div>
-            <div className="stat-label">Projects Completed</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">+1</div>
-            <div className="stat-label">AI Models Built</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">3+</div>
-            <div className="stat-label">Years Learning</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">100%</div>
-            <div className="stat-label">Passion for AI</div>
-          </div>
-        </div>
+        
       </div>
     </section>
   );

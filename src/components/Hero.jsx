@@ -36,7 +36,7 @@ export const Hero = () => {
         .hero {
           min-height: 100vh;
           position: relative;
-          background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+          background: transparent;
           overflow: hidden;
         }
 
