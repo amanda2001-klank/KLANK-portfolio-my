@@ -365,12 +365,14 @@ export const Hero = () => {
               <span>Available for new projects</span>
             </motion.div>
             
-            <motion.h1
-              className="hero-title"
-              variants={fadeInUp}
-            >
-              <span className="gradient-text">KLANKTECH</span>
-            </motion.h1>
+            <motion.h1 
+  className="hero-title inline-block" 
+  variants={fadeInUp}
+>
+  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-green-500 text-7xl md:text-8xl lg:text-9xl font-bold">
+    KLANK.
+  </span>
+</motion.h1>
             
             <motion.div className="hero-subtitle-wrapper" variants={fadeInUp}>
               <h2 className="hero-subtitle">
@@ -472,7 +474,7 @@ export const Hero = () => {
                 style={vscDarkPlus}
               >
                 {`const developer: Profile = {
-  name: "KLANKTECH",
+  name: "KLANK.",
   location: "🌍 Sri Lanka",
   role: "Full Stack Developer",
   

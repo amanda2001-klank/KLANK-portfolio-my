@@ -1473,3 +1473,23 @@ body {
   background: transparent; /* Important for particles */
 }
 
+/* Remove border from navbar/header */
+header, nav, .navbar, [class*="header"], [class*="nav"] {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* If it's a divider line from a container */
+.hero::before, .hero::after,
+header::after, nav::after {
+  display: none !important;
+}
+
+/* Remove any hr elements in hero */
+hr {
+  display: none;
+}
+
+.border-b, .divider, .header-divider {
+  border-bottom: none !important;
+}
