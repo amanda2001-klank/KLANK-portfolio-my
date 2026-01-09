@@ -3,7 +3,7 @@ import { Navbar } from "./components/Navbar";
 import Hero from './components/Hero';
 import About from "./components/About";
 import { Projects } from "./components/Projects";
-import { Contact } from "./components/Contact";
+import Contact from "./components/Contact";
 import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
@@ -13,11 +13,9 @@ import Background from './components/Background';
 
 
 function App() {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
     emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_ID);
 
     // Scroll progress bar + show/hide scroll-to-top button
@@ -43,7 +41,7 @@ function App() {
   return (
     <Background>
 
-    <div className={`app ${isLoaded ? "loaded" : ""}`}>
+    <div className="app loaded">
       {/* Progress Bar at the top */}
       <div id="progress-bar" className="progress-bar" />
 

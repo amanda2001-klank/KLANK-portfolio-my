@@ -1,151 +1,230 @@
-import { motion } from "framer-motion";
+import React, { useState, useRef } from "react";
+import EarthCanvas from "./EarthCanvas";
 import emailjs from "@emailjs/browser";
-import { useState } from "react";
+import { motion } from "framer-motion";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 },
-};
-
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-export const Contact = () => {
+const Contact = () => {
+  const formRef = useRef();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState({ loading: false, success: false, error: false });
 
-  const [formStatus, setFormStatus] = useState({
-    submitting: false,
-    success: false,
-    error: false,
-    message: "",
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
+    setStatus({ loading: true, success: false, error: false });
 
-    setFormStatus({
-      submitting: true,
-      success: false,
-      error: false,
-      message: "",
-    });
-
-    try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
+    emailjs
+      .sendForm(
+        "service_k2vzsfd",          // ← Replace with your Service ID
+        "template_of84xci",         // ← Replace with your Template ID
+        formRef.current,
+        "2cW_UGhlJSvmSw_mS"           // ← Replace with your Public Key
+      )
+      .then(
+        () => {
+          setStatus({ loading: false, success: true, error: false });
+          setFormData({ name: "", email: "", message: "" });
+          setTimeout(() => setStatus({ loading: false, success: false, error: false }), 4000);
+        },
+        (error) => {
+          console.error("EmailJS error:", error);
+          setStatus({ loading: false, success: false, error: true });
         }
       );
-
-      setFormStatus({
-        submitting: false,
-        success: true,
-        error: false,
-        message: "Message sent successfully!",
-      });
-
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
-    } catch (error) {
-      setFormStatus({
-        submitting: false,
-        success: false,
-        error: true,
-        message: "Failed to send message. Please try again.",
-      });
-    }
   };
 
   return (
-    <motion.section
-      id="contact"
-      className="contact"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+    <section
+      style={{
+        padding: "120px 40px",
+        position: "relative",
+        overflow: "hidden",
+        minHeight: "100vh",
+      }}
     >
-      <motion.h2
-        variants={fadeInUp}
-        initial="initial"
-        animate="animate"
-        viewport={{ once: true }}
+      <div
+        style={{
+          maxWidth: "1600px",
+          margin: "0 auto",
+          position: "relative",
+          zIndex: 10,
+        }}
       >
-        Get in Touch
-      </motion.h2>
-
-      <motion.div className="contact-content" variants={fadeInUp}>
-        <motion.form className="contact-form" onSubmit={handleSubmit}>
-          <motion.input
-            type="text"
-            name="name"
-            placeholder="Your Name..."
-            required
-            whileFocus={{ scale: 1.02 }}
-            onChange={handleInputChange}
-          />
-          <motion.input
-            type="email"
-            name="email"
-            placeholder="Your Email..."
-            required
-            whileFocus={{ scale: 1.02 }}
-            onChange={handleInputChange}
-          />
-          <motion.textarea
-            name="message"
-            placeholder="Your Message..."
-            required
-            whileFocus={{ scale: 1.02 }}
-            onChange={handleInputChange}
-          />
-
-          <motion.button
-            className="submit-btn"
-            type="submit"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            disabled={formStatus.submitting}
+        {/* Heading */}
+        <div style={{ textAlign: "center", marginBottom: "100px" }}>
+          <h2
+            style={{
+              fontSize: "70px",
+              fontWeight: "bold",
+              background: "linear-gradient(to right, #00ffff, #00ffaa, #00ffff)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              textShadow: "0 0 30px rgba(0, 255, 255, 0.6)",
+            }}
           >
-            {formStatus.submitting ? "Sending..." : "Send Message"}
-          </motion.button>
+            Get in Touch
+          </h2>
+          <p style={{ fontSize: "24px", color: "#dddddd" }}>
+            Let's build something amazing together
+          </p>
+        </div>
 
-          {formStatus.message && (
-            <motion.div
-              className={`form-status ${
-                formStatus.success ? "success" : "error"
-              } `}
+        {/* Side-by-Side Layout */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "80px",
+            flexWrap: "wrap",
+          }}
+        >
+          {/* Left: Neon Glass Contact Form */}
+          <div
+            style={{
+              flex: "1",
+              minWidth: "400px",
+              background: "rgba(0, 0, 0, 0.45)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              borderRadius: "32px",
+              padding: "60px",
+              border: "2px solid rgba(0, 255, 255, 0.5)",
+              boxShadow: "0 0 60px rgba(0, 255, 255, 0.4)",
+            }}
+          >
+            <form
+              ref={formRef}
+              onSubmit={sendEmail}
+              style={{ display: "flex", flexDirection: "column", gap: "35px" }}
             >
-              {formStatus.message}
-            </motion.div>
-          )}
-        </motion.form>
-      </motion.div>
-    </motion.section>
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name..."
+                value={formData.name}
+                onChange={handleChange}
+                required
+                style={inputStyle}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email..."
+                value={formData.email}
+                onChange={handleChange}
+                required
+                style={inputStyle}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
+              <textarea
+                name="message"
+                placeholder="Your Message..."
+                rows={6}
+                value={formData.message}
+                onChange={handleChange}
+                required
+                style={{ ...inputStyle, resize: "none" }}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
+
+              <button
+                type="submit"
+                disabled={status.loading}
+                style={buttonStyle}
+                onMouseOver={handleButtonHover}
+                onMouseOut={handleButtonOut}
+              >
+                {status.loading ? "Sending..." : "Send Message 🚀"}
+              </button>
+
+              {status.success && (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  style={{ color: "#00ffff", textAlign: "center", marginTop: "10px" }}
+                >
+                  Message sent successfully!
+                </motion.p>
+              )}
+              {status.error && (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  style={{ color: "#ff4d4d", textAlign: "center", marginTop: "10px" }}
+                >
+                  Oops! Something went wrong. Please try again.
+                </motion.p>
+              )}
+            </form>
+          </div>
+
+          {/* Right: Transparent Earth Globe */}
+          <div
+            style={{
+              flex: "1",
+              minWidth: "400px",
+              height: "650px",
+              borderRadius: "32px",
+              overflow: "hidden",
+            }}
+          >
+            <EarthCanvas />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
+
+// Reusable Styles (unchanged)
+const inputStyle = {
+  padding: "24px 32px",
+  background: "rgba(0, 0, 0, 0.6)",
+  border: "2px solid rgba(0, 255, 255, 0.7)",
+  borderRadius: "24px",
+  color: "white",
+  fontSize: "18px",
+  outline: "none",
+  transition: "all 0.4s",
+};
+
+const handleFocus = (e) => {
+  e.target.style.borderColor = "#00ffff";
+  e.target.style.boxShadow = "0 0 25px rgba(0, 255, 255, 0.6)";
+};
+
+const handleBlur = (e) => {
+  e.target.style.borderColor = "rgba(0, 255, 255, 0.7)";
+  e.target.style.boxShadow = "none";
+};
+
+const buttonStyle = {
+  padding: "24px",
+  background: "linear-gradient(to right, #00ffff, #00ffaa, #00ffff)",
+  border: "none",
+  borderRadius: "50px",
+  fontSize: "22px",
+  fontWeight: "bold",
+  color: "black",
+  cursor: "pointer",
+  boxShadow: "0 0 50px rgba(0, 255, 255, 0.9)",
+  transition: "all 0.4s",
+};
+
+const handleButtonHover = (e) => (e.target.style.boxShadow = "0 0 70px rgba(0, 255, 255, 1)");
+const handleButtonOut = (e) => (e.target.style.boxShadow = "0 0 50px rgba(0, 255, 255, 0.9)");
+
+export default Contact;
